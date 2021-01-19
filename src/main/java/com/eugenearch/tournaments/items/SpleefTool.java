@@ -1,8 +1,8 @@
 package com.eugenearch.tournaments.items;
 
 import com.eugenearch.tournaments.Main;
-import com.eugenearch.tournaments.utils.init.InitBlocks;
-import com.eugenearch.tournaments.utils.init.InitItems;
+import com.eugenearch.tournaments.utils.registry.ItemRegistry;
+import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 
 import com.google.common.collect.ImmutableSet;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 public class SpleefTool extends ItemTool implements IHasModel {
-    private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(InitBlocks.SPLEEF_SNOW);
+    private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(BlockRegistry.SPLEEF_SNOW);
 
     public SpleefTool(String name) {
         super(-1.0F, 1.0F, Main.EVENT_MATERIAL, EFFECTIVE_ON);
@@ -29,12 +29,12 @@ public class SpleefTool extends ItemTool implements IHasModel {
         setUnlocalizedName(name);
         setCreativeTab(CreativeTabs.TOOLS);
 
-        InitItems.ITEMS.add(this);
+        ItemRegistry.ITEMS.add(this);
     }
 
     public boolean canHarvestBlock(IBlockState blockIn)
     {
-        return blockIn.getBlock() == InitBlocks.SPLEEF_SNOW;
+        return blockIn.getBlock() == BlockRegistry.SPLEEF_SNOW;
     }
 
     @Override

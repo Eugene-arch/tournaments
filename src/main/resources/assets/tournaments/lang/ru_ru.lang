@@ -1,0 +1,9 @@
+item.spleef_shovel.name=§aЛопата для сплифа
+item.spleef_shovel.tooltip=Может ломать только §bБлоки сплиф-арены
+
+tile.spleef_block.name=§bБлок сплиф-арены
+tile.spleef_block.tooltip=Может быть сломан только §aЛопатой для сплифа
+
+tile.tntrun_block.name=§cБлок TNT Run арены
+tile.tntrun_block.tooltip=Увеличивает скорость передвижения игрока на 50%%
+tile.tntrun_block.tooltip2=Самоуничтожается через 3 тика, если игрок наступит на него
