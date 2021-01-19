@@ -1,0 +1,9 @@
+item.spleef_shovel.name=§aSpleef Shovel
+item.spleef_shovel.tooltip=Can only break §bSpleef Blocks
+
+tile.spleef_block.name=§bSpleef Block
+tile.spleef_block.tooltip=Can only be broken using §aSpleef Shovel
+
+tile.tntrun_block.name=§cTNT Run Block
+tile.tntrun_block.tooltip=Applies "Speed 10" effect for 60 ticks
+tile.tntrun_block.tooltip2=Self-destructs if the player steps on it
