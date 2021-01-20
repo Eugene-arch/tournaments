@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 public class SpleefTool extends ItemTool implements IHasModel {
-    private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(BlockRegistry.SPLEEF_SNOW);
+    private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(BlockRegistry.SPLEEF_BLOCK);
 
     public SpleefTool(String name) {
         super(-1.0F, 1.0F, Main.EVENT_MATERIAL, EFFECTIVE_ON);
@@ -34,7 +34,7 @@ public class SpleefTool extends ItemTool implements IHasModel {
 
     public boolean canHarvestBlock(IBlockState blockIn)
     {
-        return blockIn.getBlock() == BlockRegistry.SPLEEF_SNOW;
+        return blockIn.getBlock() == BlockRegistry.SPLEEF_BLOCK;
     }
 
     @Override
