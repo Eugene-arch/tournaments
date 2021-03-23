@@ -5,7 +5,7 @@ import net.minecraft.util.ITickable;
 
 public class TNTRunBlockTE extends TileEntity implements ITickable {
     private boolean triggered;
-    private int ticks = 3;
+    private int ticks = 10;
 
     @Override
     public void update() {

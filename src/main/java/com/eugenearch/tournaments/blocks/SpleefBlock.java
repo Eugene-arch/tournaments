@@ -30,7 +30,7 @@ public class SpleefBlock extends Block implements IHasModel {
         setUnlocalizedName(name);
 
         this.blockSoundType = SoundType.SNOW;
-        this.lightValue = 12;
+        this.translucent = true;
 
         this.blockHardness = 50.0F;
         this.setHarvestLevel("spleef_tool", 0);
@@ -38,6 +38,11 @@ public class SpleefBlock extends Block implements IHasModel {
 
         BlockRegistry.BLOCKS.add(this);
         ItemRegistry.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
     }
 
     @Override

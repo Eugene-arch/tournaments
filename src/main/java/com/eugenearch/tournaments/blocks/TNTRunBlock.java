@@ -19,7 +19,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -28,6 +30,8 @@ import java.util.List;
 import java.util.Random;
 
 public class TNTRunBlock extends Block implements IHasModel, ITileEntityProvider {
+    protected static final AxisAlignedBB COLLISION_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
+
     public TNTRunBlock(String name) {
         super(Material.ROCK);
 
@@ -35,7 +39,7 @@ public class TNTRunBlock extends Block implements IHasModel, ITileEntityProvider
         setUnlocalizedName(name);
 
         this.blockSoundType = SoundType.STONE;
-        this.lightValue = 12;
+        this.translucent = true;
 
         this.blockHardness = 20.0F;
         this.setHarvestLevel("tntrun_tool", 0);
@@ -65,19 +69,34 @@ public class TNTRunBlock extends Block implements IHasModel, ITileEntityProvider
 
     @Override
     public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.motionX *= 1.5D;
-        entityIn.motionZ *= 1.5D;
+        entityIn.motionX *= 1.1D;
+        entityIn.motionZ *= 1.1D;
+        if (entityIn instanceof EntityPlayer) {
+            EntityPlayer entityPlayer = ((EntityPlayer) entityIn);
+            entityPlayer.getFoodStats().addStats(1, 0.1F);
+        }
+        super.onEntityWalk(worldIn, pos, entityIn);
+    }
 
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
+    }
+
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
+    {
+        return COLLISION_AABB;
+    }
+
+    @Override
+    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
         TileEntity tileEntity = worldIn.getTileEntity(pos);
-        if (tileEntity instanceof TNTRunBlockTE) {
-            if (entityIn instanceof EntityPlayer) {
-                EntityPlayer entityPlayer = ((EntityPlayer) entityIn);
-                entityPlayer.getFoodStats().addStats(1, 0.1F);
+        if (entityIn instanceof EntityPlayer) {
+            if (tileEntity instanceof TNTRunBlockTE) {
                 ((TNTRunBlockTE) tileEntity).trigger();
             }
         }
-
-        super.onEntityWalk(worldIn, pos, entityIn);
+        super.onEntityCollidedWithBlock(worldIn, pos, state, entityIn);
     }
 
     @Nullable
