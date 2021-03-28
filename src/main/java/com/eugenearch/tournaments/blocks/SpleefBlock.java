@@ -5,6 +5,7 @@ import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -22,15 +23,14 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
-public class SpleefBlock extends Block implements IHasModel {
+public class SpleefBlock extends BlockBreakable implements IHasModel {
     public SpleefBlock(String name) {
-        super(Material.CRAFTED_SNOW);
+        super(Material.CRAFTED_SNOW, false);
 
         setRegistryName(name);
         setUnlocalizedName(name);
 
         this.blockSoundType = SoundType.SNOW;
-        this.translucent = true;
 
         this.blockHardness = 50.0F;
         this.setHarvestLevel("spleef_tool", 0);
@@ -43,6 +43,16 @@ public class SpleefBlock extends Block implements IHasModel {
     @Override
     public boolean isOpaqueCube(IBlockState state) {
         return false;
+    }
+
+    public boolean isFullCube(IBlockState state)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean isTranslucent(IBlockState state) {
+        return true;
     }
 
     @Override

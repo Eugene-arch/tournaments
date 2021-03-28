@@ -7,6 +7,7 @@ import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -29,17 +30,16 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class TNTRunBlock extends Block implements IHasModel, ITileEntityProvider {
+public class TNTRunBlock extends BlockBreakable implements IHasModel, ITileEntityProvider {
     protected static final AxisAlignedBB COLLISION_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
 
     public TNTRunBlock(String name) {
-        super(Material.ROCK);
+        super(Material.ROCK, false);
 
         setRegistryName(name);
         setUnlocalizedName(name);
 
         this.blockSoundType = SoundType.STONE;
-        this.translucent = true;
 
         this.blockHardness = 20.0F;
         this.setHarvestLevel("tntrun_tool", 0);
@@ -81,6 +81,16 @@ public class TNTRunBlock extends Block implements IHasModel, ITileEntityProvider
     @Override
     public boolean isOpaqueCube(IBlockState state) {
         return false;
+    }
+
+    public boolean isFullCube(IBlockState state)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean isTranslucent(IBlockState state) {
+        return true;
     }
 
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
