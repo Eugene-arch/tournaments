@@ -1,9 +1,8 @@
 package com.eugenearch.tournaments.utils.handlers;
 
+import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
-import com.eugenearch.tournaments.utils.interfaces.IHasModel;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -26,15 +25,15 @@ public class RegisterHandler {
     @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event) {
 
-        for(Item item: ItemRegistry.ITEMS) {
+        for (Item item : ItemRegistry.ITEMS) {
             if (item instanceof IHasModel) {
-                ((IHasModel)item).registerModels();
+                ((IHasModel) item).registerModels();
             }
         }
 
-        for(Block block: BlockRegistry.BLOCKS) {
+        for (Block block : BlockRegistry.BLOCKS) {
             if (block instanceof IHasModel) {
-                ((IHasModel)block).registerModels();
+                ((IHasModel) block).registerModels();
             }
         }
     }

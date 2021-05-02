@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InitBlocks {
-    public static final List<Block> BLOCKS = new ArrayList<Block>();
+    public static final List<Block> BLOCKS = new ArrayList<>();
 
     public static Block SPLEEF_SNOW = new SpleefBlock("spleef_block");
     public static Block TNTRUN_SNOW = new TNTRunBlock("tntrun_block");

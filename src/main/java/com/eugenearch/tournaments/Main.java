@@ -23,7 +23,10 @@ public class Main {
     @Instance
     public static Main instance;
 
-    @SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.COMMON)
+    @SidedProxy(
+            clientSide = Reference.CLIENT,
+            serverSide = Reference.COMMON
+    )
     public static CommonProxy proxy;
 
     @EventHandler

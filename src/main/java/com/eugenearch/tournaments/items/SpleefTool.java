@@ -1,10 +1,9 @@
 package com.eugenearch.tournaments.items;
 
 import com.eugenearch.tournaments.Main;
-import com.eugenearch.tournaments.utils.registry.ItemRegistry;
-import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
-
+import com.eugenearch.tournaments.utils.registry.BlockRegistry;
+import com.eugenearch.tournaments.utils.registry.ItemRegistry;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
@@ -32,8 +31,7 @@ public class SpleefTool extends ItemTool implements IHasModel {
         ItemRegistry.ITEMS.add(this);
     }
 
-    public boolean canHarvestBlock(IBlockState blockIn)
-    {
+    public boolean canHarvestBlock(IBlockState blockIn) {
         return blockIn.getBlock() == BlockRegistry.SPLEEF_BLOCK;
     }
 
@@ -44,7 +42,7 @@ public class SpleefTool extends ItemTool implements IHasModel {
     }
 
     @Override
-    public boolean hasEffect (ItemStack itemstack) {
+    public boolean hasEffect(ItemStack itemstack) {
         return true;
     }
 

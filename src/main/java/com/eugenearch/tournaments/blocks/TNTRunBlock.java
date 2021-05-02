@@ -44,7 +44,6 @@ public class TNTRunBlock extends BlockBreakable implements IHasModel, ITileEntit
         this.blockHardness = 20.0F;
         this.setHarvestLevel("tntrun_tool", 0);
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-
         BlockRegistry.BLOCKS.add(this);
         ItemRegistry.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
@@ -99,14 +98,14 @@ public class TNTRunBlock extends BlockBreakable implements IHasModel, ITileEntit
     }
 
     @Override
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-        TileEntity tileEntity = worldIn.getTileEntity(pos);
-        if (entityIn instanceof EntityPlayer) {
+    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+        if (entity instanceof EntityPlayer) {
+            TileEntity tileEntity = world.getTileEntity(pos);
             if (tileEntity instanceof TNTRunBlockTE) {
                 ((TNTRunBlockTE) tileEntity).trigger();
             }
         }
-        super.onEntityCollidedWithBlock(worldIn, pos, state, entityIn);
+        super.onEntityCollidedWithBlock(world, pos, state, entity);
     }
 
     @Nullable
