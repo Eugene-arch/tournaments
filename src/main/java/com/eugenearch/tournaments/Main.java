@@ -19,11 +19,17 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
+@Mod(
+        modid = Reference.MODID,
+        name = Reference.NAME,
+        version = Reference.VERSION
+)
 public class Main {
+
     public static Logger logger;
 
     public static final Item.ToolMaterial EVENT_MATERIAL = EnumHelper.addToolMaterial("EVENT_MATERIAL", 1, -1, 20000F, 0F, 0);
+
     public static final CreativeTabs TOURNAMENTS_TAB = new CreativeTabs(10, "tournaments") {
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem() {
@@ -42,13 +48,14 @@ public class Main {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        Boolean
         logger = event.getModLog();
         GameRegistry.registerTileEntity(TNTRunBlockTE.class, new ResourceLocation(Reference.MODID + ":tntrun_blockte"));
     }
-
 
     @EventHandler
     public void postInit(FMLInitializationEvent event) {
         logger.info("\"Eugene Tournaments\" initialization completed.");
     }
+
 }

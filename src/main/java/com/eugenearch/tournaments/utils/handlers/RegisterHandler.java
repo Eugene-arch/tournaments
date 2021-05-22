@@ -1,5 +1,6 @@
 package com.eugenearch.tournaments.utils.handlers;
 
+import com.eugenearch.tournaments.Reference;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
@@ -10,7 +11,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@EventBusSubscriber
+@EventBusSubscriber(modid = Reference.MODID)
 public class RegisterHandler {
     @SubscribeEvent
     public static void onItemRegister(RegistryEvent.Register<Item> event) {

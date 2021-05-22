@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlockRegistry {
-    public static final List<Block> BLOCKS = new ArrayList<Block>();
+    public static final List<Block> BLOCKS = new ArrayList<>();
 
     public static Block SPLEEF_BLOCK = new SpleefBlock("spleef_block");
     public static Block TNTRUN_BLOCK = new TNTRunBlock("tntrun_block");

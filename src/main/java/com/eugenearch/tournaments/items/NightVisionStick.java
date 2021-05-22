@@ -39,13 +39,13 @@ public class NightVisionStick extends Item implements IHasModel {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        if (playerIn.getActivePotionEffect(MobEffects.NIGHT_VISION) != null) {
-            playerIn.removePotionEffect(MobEffects.NIGHT_VISION);
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        if (player.getActivePotionEffect(MobEffects.NIGHT_VISION) != null) {
+            player.removePotionEffect(MobEffects.NIGHT_VISION);
         } else {
-            playerIn.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 1000000));
+            player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 1000000));
         }
-        return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+        return new ActionResult<>(EnumActionResult.PASS, player.getHeldItem(hand));
     }
 
     @Override
@@ -53,7 +53,9 @@ public class NightVisionStick extends Item implements IHasModel {
         Main.proxy.registerItemRenderer(this, 0, "inventory");
     }
 
-    public boolean hasEffect(ItemStack par1ItemStack) {
+    @Override
+    public boolean hasEffect(ItemStack itemStack) {
         return true;
     }
+
 }
