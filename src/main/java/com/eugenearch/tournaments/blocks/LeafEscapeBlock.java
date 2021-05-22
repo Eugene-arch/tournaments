@@ -4,10 +4,8 @@ import com.eugenearch.tournaments.Main;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
-import com.google.common.base.Predicate;
 import net.minecraft.block.BlockNewLeaf;
 import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -28,10 +26,11 @@ import java.util.List;
 import java.util.Random;
 
 public class LeafEscapeBlock extends BlockNewLeaf implements IHasModel {
+
     protected IBlockState thisBlockState;
 
     public LeafEscapeBlock(String name) {
-        this.thisBlockState = this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf(true)).withProperty(CHECK_DECAY, Boolean.valueOf(true));
+        this.thisBlockState = this.getDefaultState().withProperty(DECAYABLE, Boolean.TRUE).withProperty(CHECK_DECAY, Boolean.TRUE);
         this.setDefaultState(this.thisBlockState);
 
         setUnlocalizedName(name);
@@ -56,6 +55,7 @@ public class LeafEscapeBlock extends BlockNewLeaf implements IHasModel {
         tooltip.add(I18n.format("tile.leafescape_block.tooltip"));
     }
 
+    @Override
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
         return new ItemStack(this, 1);
     }
@@ -75,26 +75,32 @@ public class LeafEscapeBlock extends BlockNewLeaf implements IHasModel {
     }
 
     // TODO: Simplified parent methods
+    @Override
     public int getMetaFromState(IBlockState state) {
         return 12;
     }
 
+    @Override
     public BlockPlanks.EnumType getWoodType(int meta) {
         return BlockPlanks.EnumType.ACACIA;
     }
 
+    @Override
     protected ItemStack getSilkTouchDrop(IBlockState state) {
         return null;
     }
 
+    @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return null;
     }
 
+    @Override
     public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
         items.add(new ItemStack(this, 1, 0));
     }
 
+    @Override
     public IBlockState getStateFromMeta(int meta) {
         return this.thisBlockState;
     }
@@ -105,9 +111,11 @@ public class LeafEscapeBlock extends BlockNewLeaf implements IHasModel {
     }
 
     // TODO: Erased parent methods
+    @Override
     protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance) {
     }
 
+    @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
 
     }
@@ -116,4 +124,5 @@ public class LeafEscapeBlock extends BlockNewLeaf implements IHasModel {
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 
     }
+
 }
