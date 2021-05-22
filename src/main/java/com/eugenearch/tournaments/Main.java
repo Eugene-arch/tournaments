@@ -48,7 +48,6 @@ public class Main {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        Boolean
         logger = event.getModLog();
         GameRegistry.registerTileEntity(TNTRunBlockTE.class, new ResourceLocation(Reference.MODID + ":tntrun_blockte"));
     }
