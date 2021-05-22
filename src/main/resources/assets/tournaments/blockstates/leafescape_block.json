@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "normal": {
+      "model": "tournaments:leafescape_block"
+    },
+    "check_decay=true,decayable=true,variant=acacia": {
+      "model": "tournaments:leafescape_block"
+    }
+  }
+}

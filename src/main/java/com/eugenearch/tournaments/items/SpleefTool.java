@@ -10,7 +10,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.world.World;
@@ -26,7 +25,7 @@ public class SpleefTool extends ItemTool implements IHasModel {
 
         setRegistryName(name);
         setUnlocalizedName(name);
-        setCreativeTab(CreativeTabs.TOOLS);
+        setCreativeTab(Main.TOURNAMENTS_TAB);
 
         ItemRegistry.ITEMS.add(this);
     }

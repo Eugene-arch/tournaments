@@ -1,12 +1,20 @@
+itemGroup.tournaments=§9Tournaments
+
 item.spleef_shovel.name=§aSpleef Shovel
 item.spleef_shovel.tooltip=Can only break §bSpleef Blocks
 
-tile.spleef_block.name=§bSpleef Block
+item.nightvision_stick.name=§dNight Vision Stick
+item.nightvision_stick.tooltip=Applies / removes night vision effect
+
+tile.spleef_block.name=§aSpleef Block
 tile.spleef_block.tooltip=Can only be broken using §aSpleef Shovel
 
-tile.tntrun_block.name=§cTNT Run Block
+tile.tntrun_block.name=§aTNT Run Block
 tile.tntrun_block.tooltip=Increases the player's movement speed by 50%%
 tile.tntrun_block.tooltip2=Self-destructs in 3 ticks if the player steps on it
 
-tile.healer_block.name=§6Healer
+tile.leafescape_block.name=§aLeafEscape Block
+tile.leafescape_block.tooltip=Seems like a leaf, works like a leaf!
+
+tile.healer_block.name=§dHealer
 tile.healer_block.tooltip=Used for healing players standing on it

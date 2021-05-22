@@ -10,7 +10,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -35,7 +34,7 @@ public class HealingRoad extends Block implements IHasModel {
 
         this.blockHardness = 5.0F;
         this.setHarvestLevel("spleef_tool", 0);
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        setCreativeTab(Main.TOURNAMENTS_TAB);
 
         BlockRegistry.BLOCKS.add(this);
         ItemRegistry.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -53,8 +52,7 @@ public class HealingRoad extends Block implements IHasModel {
     }
 
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Items.AIR;
     }
 

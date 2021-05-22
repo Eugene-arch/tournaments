@@ -1,12 +1,20 @@
+itemGroup.tournaments=§9Турниры
+
 item.spleef_shovel.name=§aЛопата для сплифа
 item.spleef_shovel.tooltip=Может ломать только §bБлоки сплиф-арены
 
-tile.spleef_block.name=§bБлок сплиф-арены
+item.nightvision_stick.name=§dПалка всевиденья
+item.nightvision_stick.tooltip=Накладывает/снимает эффект ночного зрения
+
+tile.spleef_block.name=§aБлок сплиф-арены
 tile.spleef_block.tooltip=Может быть сломан только §aЛопатой для сплифа
 
-tile.tntrun_block.name=§cБлок TNT Run арены
+tile.tntrun_block.name=§aБлок TNT Run арены
 tile.tntrun_block.tooltip=Увеличивает скорость передвижения игрока на 50%%
 tile.tntrun_block.tooltip2=Самоуничтожается через 3 тика, если игрок наступит на него
 
-tile.healer_block.name=§6Исцелитель
+tile.leafescape_block.name=§aБлок LeafEscape-арены
+tile.leafescape_block.tooltip=Выглядит как листва, работает как листва!
+
+tile.healer_block.name=§dИсцелитель
 tile.healer_block.tooltip=Используется для лечения игроков, стоящих на нём
