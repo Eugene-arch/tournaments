@@ -18,3 +18,6 @@ tile.leafescape_block.tooltip=Seems like a leaf, works like a leaf!
 
 tile.healer_block.name=§dHealer
 tile.healer_block.tooltip=Used for healing players standing on it
+
+tile.wet_sand.name=Wet sand
+tile.wet_sand.tooltip=Sugar cane can be grown down here without water source
