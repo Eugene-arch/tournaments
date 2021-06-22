@@ -44,8 +44,7 @@ public class BlockSpleef extends BlockBreakable implements IHasModel {
         return false;
     }
 
-    public boolean isFullCube(IBlockState state)
-    {
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
@@ -66,8 +65,7 @@ public class BlockSpleef extends BlockBreakable implements IHasModel {
     }
 
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Items.AIR;
     }
 

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "tournaments:spleef_block" }
+    "normal": {
+      "model": "tournaments:spleef_block"
+    }
   }
 }

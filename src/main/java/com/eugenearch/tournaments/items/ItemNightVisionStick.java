@@ -21,6 +21,7 @@ import java.util.List;
 
 public class ItemNightVisionStick extends Item implements IHasModel {
     private String name;
+
     public ItemNightVisionStick(String name) {
         super();
 

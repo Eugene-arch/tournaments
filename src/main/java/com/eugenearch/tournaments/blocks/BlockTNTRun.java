@@ -58,8 +58,7 @@ public class BlockTNTRun extends BlockBreakable implements IHasModel, ITileEntit
     }
 
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return null;
     }
 
@@ -79,8 +78,7 @@ public class BlockTNTRun extends BlockBreakable implements IHasModel, ITileEntit
         return false;
     }
 
-    public boolean isFullCube(IBlockState state)
-    {
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
@@ -89,8 +87,7 @@ public class BlockTNTRun extends BlockBreakable implements IHasModel, ITileEntit
         return true;
     }
 
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
-    {
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
         return COLLISION_AABB;
     }
 

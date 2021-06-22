@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "tournaments:tntrun_block" }
+    "normal": {
+      "model": "tournaments:tntrun_block"
+    }
   }
 }

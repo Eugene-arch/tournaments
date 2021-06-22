@@ -1,13 +1,10 @@
 package com.eugenearch.tournaments.items;
 
 import com.eugenearch.tournaments.Main;
-import com.eugenearch.tournaments.Reference;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
-import net.minecraft.advancements.Advancement;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.command.CommandBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -18,7 +15,6 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
-import java.sql.Ref;
 import java.util.List;
 
 public class ItemSlimeChunkFounder extends Item implements IHasModel {
@@ -69,12 +65,11 @@ public class ItemSlimeChunkFounder extends Item implements IHasModel {
 
     @Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-        if (!world.isRemote && entity instanceof EntityPlayer && ((EntityPlayer)entity).getHeldItemOffhand() == stack) {
+        if (!world.isRemote && entity instanceof EntityPlayer && ((EntityPlayer) entity).getHeldItemOffhand() == stack) {
             if (entity != null) {
                 Chunk chunk = world.getChunkFromChunkCoords(MathHelper.floor(entity.posX) >> 4, MathHelper.floor(entity.posZ) >> 4);
                 boolean isSlimeChunkPrev = this.getChunk_key(stack);
                 boolean isSlimeChunkNew = chunk.getRandomWithSeed(987234911L).nextInt(10) == 0;
-//                System.out.println(isSlimeChunkPrev + " >> " + isSlimeChunkNew);
 
                 if (isSlimeChunkPrev != isSlimeChunkNew) {
                     this.setChunk_key(stack, isSlimeChunkNew);
@@ -86,7 +81,7 @@ public class ItemSlimeChunkFounder extends Item implements IHasModel {
                     }
                 }
             } else {
-                this.setChunk_key(stack,false);
+                this.setChunk_key(stack, false);
             }
         }
     }

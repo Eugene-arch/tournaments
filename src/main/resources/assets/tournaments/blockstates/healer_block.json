@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "tournaments:healer_block" }
+    "normal": {
+      "model": "tournaments:healer_block"
+    }
   }
 }
