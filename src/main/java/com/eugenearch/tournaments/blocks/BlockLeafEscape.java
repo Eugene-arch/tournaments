@@ -25,11 +25,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-public class LeafEscapeBlock extends BlockNewLeaf implements IHasModel {
+public class BlockLeafEscape extends BlockNewLeaf implements IHasModel {
 
     protected IBlockState thisBlockState;
 
-    public LeafEscapeBlock(String name) {
+    public BlockLeafEscape(String name) {
         this.thisBlockState = this.getDefaultState().withProperty(DECAYABLE, Boolean.TRUE).withProperty(CHECK_DECAY, Boolean.TRUE);
         this.setDefaultState(this.thisBlockState);
 

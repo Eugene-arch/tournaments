@@ -17,12 +17,14 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Set;
 
-public class SpleefTool extends ItemTool implements IHasModel {
+public class ItemSpleefTool extends ItemTool implements IHasModel {
     private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(BlockRegistry.SPLEEF_BLOCK);
+    private String name;
 
-    public SpleefTool(String name) {
+    public ItemSpleefTool(String name) {
         super(-1.0F, 1.0F, Main.EVENT_MATERIAL, EFFECTIVE_ON);
 
+        this.name = name;
         setRegistryName(name);
         setUnlocalizedName(name);
         setCreativeTab(Main.TOURNAMENTS_TAB);
@@ -36,8 +38,8 @@ public class SpleefTool extends ItemTool implements IHasModel {
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, ITooltipFlag advanced) {
-        tooltip.add(I18n.format("item.spleef_shovel.tooltip"));
         super.addInformation(stack, player, tooltip, advanced);
+        tooltip.add(I18n.format("item." + this.name + ".tooltip"));
     }
 
     @Override

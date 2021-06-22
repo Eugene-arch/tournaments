@@ -3,7 +3,7 @@ package com.eugenearch.tournaments.blocks.tileentity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 
-public class TNTRunBlockTE extends TileEntity implements ITickable {
+public class TileEntityBlockTNTRun extends TileEntity implements ITickable {
     private boolean triggered;
     private int ticks = 10;
 

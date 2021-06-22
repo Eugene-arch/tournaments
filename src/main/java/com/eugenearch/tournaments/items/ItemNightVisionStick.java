@@ -19,11 +19,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-public class NightVisionStick extends Item implements IHasModel {
-
-    public NightVisionStick(String name) {
+public class ItemNightVisionStick extends Item implements IHasModel {
+    private String name;
+    public ItemNightVisionStick(String name) {
         super();
 
+        this.name = name;
         setRegistryName(name);
         setUnlocalizedName(name);
         setCreativeTab(Main.TOURNAMENTS_TAB);
@@ -34,7 +35,7 @@ public class NightVisionStick extends Item implements IHasModel {
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, ITooltipFlag advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(I18n.format("item.nightvision_stick.tooltip"));
+        tooltip.add(I18n.format("item." + this.name + ".tooltip"));
     }
 
     @Override

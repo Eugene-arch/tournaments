@@ -6,6 +6,11 @@ item.spleef_shovel.tooltip=Can only break §bSpleef Blocks
 item.nightvision_stick.name=§dNight Vision Stick
 item.nightvision_stick.tooltip=Applies / removes night vision effect
 
+item.slimizer.name=Slimizer
+item.slimizer.tooltip=You can find slime chunks while holding slimizer in off hand
+item.slimizer.messages.slimechunk_enter=§b[§aSlimizer§b] You are in slime chunk now!
+item.slimizer.messages.slimechunk_leave=§b[§cSlimizer§b] You aren't in slime chunk now!
+
 tile.spleef_block.name=§aSpleef Block
 tile.spleef_block.tooltip=Can only be broken using §aSpleef Shovel
 

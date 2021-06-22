@@ -1,7 +1,7 @@
 package com.eugenearch.tournaments;
 
-import com.eugenearch.tournaments.blocks.tileentity.TNTRunBlockTE;
-import com.eugenearch.tournaments.proxy.CommonProxy;
+import com.eugenearch.tournaments.blocks.tileentity.TileEntityBlockTNTRun;
+import com.eugenearch.tournaments.proxy.ProxyCommon;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -20,9 +20,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Logger;
 
 @Mod(
-        modid = Reference.MODID,
-        name = Reference.NAME,
-        version = Reference.VERSION
+        modid = Reference.MOD_ID,
+        name = Reference.MOD_NAME,
+        version = Reference.MOD_VERSION
 )
 public class Main {
 
@@ -41,15 +41,15 @@ public class Main {
     public static Main instance;
 
     @SidedProxy(
-            clientSide = Reference.CLIENT,
-            serverSide = Reference.COMMON
+            clientSide = Reference.PROXY_CLIENT,
+            serverSide = Reference.PROXY_COMMON
     )
-    public static CommonProxy proxy;
+    public static ProxyCommon proxy;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
-        GameRegistry.registerTileEntity(TNTRunBlockTE.class, new ResourceLocation(Reference.MODID + ":tntrun_blockte"));
+        GameRegistry.registerTileEntity(TileEntityBlockTNTRun.class, new ResourceLocation(Reference.MOD_ID + ":tntrun_blockte"));
     }
 
     @EventHandler

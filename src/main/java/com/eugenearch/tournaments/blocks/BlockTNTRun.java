@@ -1,7 +1,7 @@
 package com.eugenearch.tournaments.blocks;
 
 import com.eugenearch.tournaments.Main;
-import com.eugenearch.tournaments.blocks.tileentity.TNTRunBlockTE;
+import com.eugenearch.tournaments.blocks.tileentity.TileEntityBlockTNTRun;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
@@ -27,10 +27,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class TNTRunBlock extends BlockBreakable implements IHasModel, ITileEntityProvider {
+public class BlockTNTRun extends BlockBreakable implements IHasModel, ITileEntityProvider {
     protected static final AxisAlignedBB COLLISION_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9375D, 1.0D);
 
-    public TNTRunBlock(String name) {
+    public BlockTNTRun(String name) {
         super(Material.ROCK, false);
 
         setRegistryName(name);
@@ -98,8 +98,8 @@ public class TNTRunBlock extends BlockBreakable implements IHasModel, ITileEntit
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
         if (entity instanceof EntityPlayer) {
             TileEntity tileEntity = world.getTileEntity(pos);
-            if (tileEntity instanceof TNTRunBlockTE) {
-                ((TNTRunBlockTE) tileEntity).trigger();
+            if (tileEntity instanceof TileEntityBlockTNTRun) {
+                ((TileEntityBlockTNTRun) tileEntity).trigger();
             }
         }
         super.onEntityCollidedWithBlock(world, pos, state, entity);
@@ -108,12 +108,12 @@ public class TNTRunBlock extends BlockBreakable implements IHasModel, ITileEntit
     @Nullable
     @Override
     public TileEntity createTileEntity(World world, IBlockState state) {
-        return new TNTRunBlockTE();
+        return new TileEntityBlockTNTRun();
     }
 
     @Nullable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TNTRunBlockTE();
+        return new TileEntityBlockTNTRun();
     }
 }

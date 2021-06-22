@@ -6,6 +6,11 @@ item.spleef_shovel.tooltip=Может ломать только §bБлоки с
 item.nightvision_stick.name=§dПалка всевиденья
 item.nightvision_stick.tooltip=Накладывает/снимает эффект ночного зрения
 
+item.slimizer.name=Слаймайзер
+item.slimizer.tooltip=Позволяет находить слайм-чанки, когда находится во второй руке
+item.slimizer.messages.slimechunk_enter=§b[§aСлаймайзер§b] Вы находитесь в слайм-чанке!
+item.slimizer.messages.slimechunk_leave=§b[§cСлаймайзер§b] Вы больше не находитесь в слайм-чанке!
+
 tile.spleef_block.name=§aБлок сплиф-арены
 tile.spleef_block.tooltip=Может быть сломан только §aЛопатой для сплифа
 

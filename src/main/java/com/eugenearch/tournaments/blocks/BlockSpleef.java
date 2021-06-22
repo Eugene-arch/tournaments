@@ -22,8 +22,8 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
-public class SpleefBlock extends BlockBreakable implements IHasModel {
-    public SpleefBlock(String name) {
+public class BlockSpleef extends BlockBreakable implements IHasModel {
+    public BlockSpleef(String name) {
         super(Material.CRAFTED_SNOW, false);
 
         setRegistryName(name);
