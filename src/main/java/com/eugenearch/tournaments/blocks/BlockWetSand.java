@@ -1,6 +1,7 @@
 package com.eugenearch.tournaments.blocks;
 
 import com.eugenearch.tournaments.Main;
+import com.eugenearch.tournaments.Reference;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
@@ -14,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -25,7 +27,9 @@ public class BlockWetSand extends BlockBreakable implements IHasModel {
     public BlockWetSand(String name) {
         super(Material.SAND, false);
 
-        setRegistryName(name);
+        ResourceLocation RS = new ResourceLocation(Reference.MOD_ID, name);
+
+        setRegistryName(RS);
         setUnlocalizedName(name);
 
         setCreativeTab(Main.TOURNAMENTS_TAB);

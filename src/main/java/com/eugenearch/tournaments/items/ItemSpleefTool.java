@@ -1,6 +1,7 @@
 package com.eugenearch.tournaments.items;
 
 import com.eugenearch.tournaments.Main;
+import com.eugenearch.tournaments.Reference;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
@@ -12,20 +13,22 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Set;
 
 public class ItemSpleefTool extends ItemTool implements IHasModel {
+
     private static final Set<Block> EFFECTIVE_ON = Sets.newHashSet(BlockRegistry.SPLEEF_BLOCK);
-    private String name;
 
     public ItemSpleefTool(String name) {
         super(-1.0F, 1.0F, Main.EVENT_MATERIAL, EFFECTIVE_ON);
 
-        this.name = name;
-        setRegistryName(name);
+        ResourceLocation RS = new ResourceLocation(Reference.MOD_ID, name);
+
+        setRegistryName(RS);
         setUnlocalizedName(name);
         setCreativeTab(Main.TOURNAMENTS_TAB);
 
@@ -39,7 +42,7 @@ public class ItemSpleefTool extends ItemTool implements IHasModel {
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, ITooltipFlag advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(I18n.format("item." + this.name + ".tooltip"));
+        tooltip.add(I18n.format("item.spleef_shovel.tooltip"));
     }
 
     @Override

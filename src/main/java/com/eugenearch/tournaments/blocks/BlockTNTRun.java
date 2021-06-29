@@ -1,6 +1,7 @@
 package com.eugenearch.tournaments.blocks;
 
 import com.eugenearch.tournaments.Main;
+import com.eugenearch.tournaments.Reference;
 import com.eugenearch.tournaments.blocks.tileentity.TileEntityBlockTNTRun;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.BlockRegistry;
@@ -18,6 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -33,7 +35,9 @@ public class BlockTNTRun extends BlockBreakable implements IHasModel, ITileEntit
     public BlockTNTRun(String name) {
         super(Material.ROCK, false);
 
-        setRegistryName(name);
+        ResourceLocation RS = new ResourceLocation(Reference.MOD_ID, name);
+
+        setRegistryName(RS);
         setUnlocalizedName(name);
 
         this.blockSoundType = SoundType.STONE;

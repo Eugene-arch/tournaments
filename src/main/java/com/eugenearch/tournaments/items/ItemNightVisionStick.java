@@ -1,6 +1,7 @@
 package com.eugenearch.tournaments.items;
 
 import com.eugenearch.tournaments.Main;
+import com.eugenearch.tournaments.Reference;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
 import net.minecraft.client.resources.I18n;
@@ -13,6 +14,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -20,13 +22,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 public class ItemNightVisionStick extends Item implements IHasModel {
-    private String name;
 
     public ItemNightVisionStick(String name) {
-        super();
+        ResourceLocation RS = new ResourceLocation(Reference.MOD_ID, name);
 
-        this.name = name;
-        setRegistryName(name);
+        setRegistryName(RS);
         setUnlocalizedName(name);
         setCreativeTab(Main.TOURNAMENTS_TAB);
 
@@ -36,7 +36,7 @@ public class ItemNightVisionStick extends Item implements IHasModel {
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, ITooltipFlag advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(I18n.format("item." + this.name + ".tooltip"));
+        tooltip.add(I18n.format("item.nightvision_stick.tooltip"));
     }
 
     @Override

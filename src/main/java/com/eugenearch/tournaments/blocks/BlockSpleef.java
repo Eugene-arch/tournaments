@@ -1,6 +1,7 @@
 package com.eugenearch.tournaments.blocks;
 
 import com.eugenearch.tournaments.Main;
+import com.eugenearch.tournaments.Reference;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
@@ -16,6 +17,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -26,7 +28,9 @@ public class BlockSpleef extends BlockBreakable implements IHasModel {
     public BlockSpleef(String name) {
         super(Material.CRAFTED_SNOW, false);
 
-        setRegistryName(name);
+        ResourceLocation RS = new ResourceLocation(Reference.MOD_ID, name);
+
+        setRegistryName(RS);
         setUnlocalizedName(name);
 
         this.blockSoundType = SoundType.SNOW;

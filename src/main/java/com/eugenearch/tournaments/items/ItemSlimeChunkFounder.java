@@ -1,6 +1,7 @@
 package com.eugenearch.tournaments.items;
 
 import com.eugenearch.tournaments.Main;
+import com.eugenearch.tournaments.Reference;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
 import net.minecraft.client.resources.I18n;
@@ -10,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
@@ -23,11 +25,10 @@ public class ItemSlimeChunkFounder extends Item implements IHasModel {
 
     public static final String TAG_LAST_SLIME_CHUNK_STATUS = "isInSlimeChunk";
 
-    private String name;
-
     public ItemSlimeChunkFounder(String name) {
-        this.name = name;
-        setRegistryName(name);
+        ResourceLocation RS = new ResourceLocation(Reference.MOD_ID, name);
+
+        setRegistryName(RS);
         setUnlocalizedName(name);
         setCreativeTab(Main.TOURNAMENTS_TAB);
 
@@ -38,7 +39,7 @@ public class ItemSlimeChunkFounder extends Item implements IHasModel {
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, ITooltipFlag advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(I18n.format("item." + this.name + ".tooltip"));
+        tooltip.add(I18n.format("item.slimizer.tooltip"));
     }
 
     @Override
@@ -81,9 +82,9 @@ public class ItemSlimeChunkFounder extends Item implements IHasModel {
                 if (isSlimeChunkPrev != isSlimeChunkNew) {
                     this.setLastChunkStatus(offhand, isSlimeChunkNew);
                     if (!isSlimeChunkPrev) {
-                        entity.sendMessage(new TextComponentTranslation("item." + name + ".messages.slimechunk_enter"));
+                        entity.sendMessage(new TextComponentTranslation("item.slimizer.messages.slimechunk_enter"));
                     } else {
-                        entity.sendMessage(new TextComponentTranslation("item." + name + ".messages.slimechunk_leave"));
+                        entity.sendMessage(new TextComponentTranslation("item.slimizer.messages.slimechunk_leave"));
                     }
                 }
 
@@ -92,28 +93,5 @@ public class ItemSlimeChunkFounder extends Item implements IHasModel {
         }
 
     }
-
-//    @Override
-//    public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-//        if (!world.isRemote && entity instanceof EntityPlayer && ((EntityPlayer) entity).getHeldItemOffhand() == stack) {
-//            if (entity != null) {
-//                Chunk chunk = world.getChunkFromChunkCoords(MathHelper.floor(entity.posX) >> 4, MathHelper.floor(entity.posZ) >> 4);
-//                boolean isSlimeChunkPrev = this.getChunk_key(stack);
-//                boolean isSlimeChunkNew = chunk.getRandomWithSeed(987234911L).nextInt(10) == 0;
-//
-//                if (isSlimeChunkPrev != isSlimeChunkNew) {
-//                    this.setChunk_key(stack, isSlimeChunkNew);
-//
-//                    if (isSlimeChunkPrev == false) { <- WTF
-//                        entity.sendMessage(new TextComponentTranslation("item." + name + ".messages.slimechunk_enter"));
-//                    } else {
-//                        entity.sendMessage(new TextComponentTranslation("item." + name + ".messages.slimechunk_leave"));
-//                    }
-//                }
-//            } else {
-//                this.setChunk_key(stack, false);
-//            }
-//        }
-//    }
 
 }

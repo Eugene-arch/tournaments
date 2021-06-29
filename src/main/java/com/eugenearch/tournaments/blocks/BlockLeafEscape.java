@@ -1,6 +1,7 @@
 package com.eugenearch.tournaments.blocks;
 
 import com.eugenearch.tournaments.Main;
+import com.eugenearch.tournaments.Reference;
 import com.eugenearch.tournaments.utils.interfaces.IHasModel;
 import com.eugenearch.tournaments.utils.registry.BlockRegistry;
 import com.eugenearch.tournaments.utils.registry.ItemRegistry;
@@ -17,6 +18,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -33,8 +35,10 @@ public class BlockLeafEscape extends BlockNewLeaf implements IHasModel {
         this.thisBlockState = this.getDefaultState().withProperty(DECAYABLE, Boolean.TRUE).withProperty(CHECK_DECAY, Boolean.TRUE);
         this.setDefaultState(this.thisBlockState);
 
+        ResourceLocation RS = new ResourceLocation(Reference.MOD_ID, name);
+
+        setRegistryName(RS);
         setUnlocalizedName(name);
-        setRegistryName(name);
 
         setCreativeTab(Main.TOURNAMENTS_TAB);
         setBlockUnbreakable();
