@@ -30,7 +30,7 @@ public class Main {
 
     public static final Item.ToolMaterial EVENT_MATERIAL = EnumHelper.addToolMaterial("EVENT_MATERIAL", 1, -1, 20000F, 0F, 0);
 
-    public static final CreativeTabs TOURNAMENTS_TAB = new CreativeTabs(10, "tournaments") {
+    public static final CreativeTabs TOURNAMENTS_TAB = new CreativeTabs("tournaments") {
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem() {
             return new ItemStack(ItemRegistry.SPLEEF_SHOVEL);
